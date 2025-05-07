@@ -1,0 +1,19 @@
+# Ignore virtual environment
+venv/
+
+# Ignore specimen images
+specimen/*
+
+# But keep the specimen directory
+!specimen/
+
+# Ignore common Python cache and environment files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore OS files
+.DS_Store
+
+# Add other ignores as needed
