@@ -20,7 +20,7 @@ class ElectronMagnifier:
         self.survey_x = x
         self.survey_y = y
 
-    def get_coarse_survey_view(self):
+    def get_survey_view(self):
         # Crop the 1000x1000 area and resize to 100x100
         box = (
             self.survey_x,
