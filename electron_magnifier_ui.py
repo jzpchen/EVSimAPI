@@ -71,15 +71,16 @@ image_with_box, scale = draw_draggable_box(em.image, box_x, box_y, em.survey_siz
 st.image(image_with_box, use_container_width=True)
 
 # Survey and detail views
-survey_view = em.get_coarse_survey_view()
+survey_view = em.get_survey_view()
 survey_view_with_grid = draw_grid(survey_view.copy(), em.detail_grid)
 
 # Select detail index using grid (simulate with two sliders for now)
-st.subheader("Survey and Detail Views")
 grid_row, grid_col = st.columns(2)
 with grid_row:
+    st.markdown("**Survey View**")
     sel_row = st.slider("Grid Row", min_value=0, max_value=em.detail_grid-1, value=0)
 with grid_col:
+    st.markdown("**Detail View**")
     sel_col = st.slider("Grid Col", min_value=0, max_value=em.detail_grid-1, value=0)
 detail_index = sel_row * em.detail_grid + sel_col
 detail_view = em.get_detail_view(detail_index)
@@ -96,9 +97,9 @@ grid_draw.rectangle([x0, y0, x1, y1], outline="yellow", width=2)
 # Show survey and detail views
 col_survey, col_detail = st.columns(2)
 with col_survey:
-    st.image(survey_view_with_grid, caption="Survey View (100x100, 10x10 grid)", width=150)
+    st.image(survey_view_with_grid, caption="Survey View (10x10 grid)", width=150)
 with col_detail:
-    st.image(detail_view, caption=f"Detail View (Cell {detail_index})", width=150)
+        st.image(detail_view, caption=f"Detail View (Cell {detail_index})", width=150)
 
 st.markdown("""
 **Instructions:**
